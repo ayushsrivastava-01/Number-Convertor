@@ -19,15 +19,14 @@
   </header>
 
   <main class="container">
-    <!-- Converter -->
     <section class="card">
       <h2>🔢 Converter</h2>
       <div class="input-group">
         <input type="text" id="inputNumber" placeholder="Enter number" />
         <small id="inputError"></small>
       </div>
-
       <div class="converter-box">
+        <label for="fromBase" class="select-label">From</label>
         <select id="fromBase" onchange="clearInputError()">
           <option value="2">Binary (2)</option>
           <option value="8">Octal (8)</option>
@@ -37,6 +36,7 @@
 
         <div id="swapArrow" class="swap-arrow" title="Swap"></div>
 
+        <label for="toBase" class="select-label">To</label>
         <select id="toBase">
           <option value="2" selected>Binary (2)</option>
           <option value="8">Octal (8)</option>
@@ -44,12 +44,12 @@
           <option value="16">Hexadecimal (16)</option>
         </select>
       </div>
-
       <button onclick="convert()">Convert</button>
       <div id="convertResult" class="result-box"></div>
     </section>
 
-    <!-- Calculator -->
+    <div class="mobile-spacing"></div>
+
     <section class="card">
       <h2>🧮 Calculator</h2>
       <div class="input-group">
@@ -58,12 +58,15 @@
         <small id="calcError"></small>
       </div>
       <div class="select-group">
+        <label for="calcBase" class="select-label">Number Type</label>
         <select id="calcBase" onchange="clearCalcError()">
           <option value="2">Binary (2)</option>
           <option value="8">Octal (8)</option>
           <option value="10" selected>Decimal (10)</option>
           <option value="16">Hexadecimal (16)</option>
         </select>
+
+        <label for="operation" class="select-label">Operation</label>
         <select id="operation">
           <option value="add">Addition (+)</option>
           <option value="sub">Subtraction (-)</option>
@@ -80,8 +83,21 @@
     <p>© <span id="year"></span> Ayush Srivastava. All rights reserved.</p>
     <p>Contact: <a href="mailto:srivastava999ayush@gmail.com" id="emailLink">srivastava999ayush@gmail.com</a></p>
     <p id="suggestions">💡 Got ideas? Drop me an email with your suggestions!</p>
-    <p class="visitor-text">Visitors: <span id="visitorCount">0</span></p>
+    <p class="visitor-text">Total Visitors: <span id="visitorCount">0</span></p>
   </footer>
+
+  <div id="welcomeModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <h2>Welcome to Number Converter!</h2>
+      <p>Glad to see you here. Explore number systems and perform calculations easily!</p>
+      <label style="display:flex;align-items:center;gap:5px;cursor:pointer;" class="donotshow">
+        <input type="checkbox" id="dontShowAgain">
+        Don't show this again
+      </label>
+      <button id="modalOkBtn">Start Exploring</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
