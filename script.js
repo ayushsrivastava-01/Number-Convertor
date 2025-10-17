@@ -1,4 +1,3 @@
-// Theme toggle
 const themeToggle = document.getElementById("themeToggle");
 const themeIcon = document.getElementById("themeIcon");
 
@@ -14,7 +13,6 @@ themeToggle.addEventListener("click", () => {
   }, 300);
 });
 
-// Visitor counter
 let visitors = localStorage.getItem("visitors")
   ? parseInt(localStorage.getItem("visitors"))
   : 0;
@@ -22,10 +20,8 @@ visitors++;
 localStorage.setItem("visitors", visitors);
 document.getElementById("visitorCount").textContent = visitors;
 
-// Dynamic year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Base validation
 function isValidForBase(value, base) {
   const regexMap = {
     2: /^[01]*$/,
@@ -72,7 +68,6 @@ function clearCalcError() {
   document.getElementById("num2").value = "";
 }
 
-// Converter
 function convert() {
   const numStr = document.getElementById("inputNumber").value.trim().toUpperCase();
   const fromBase = parseInt(document.getElementById("fromBase").value);
@@ -92,7 +87,6 @@ function convert() {
   resultDiv.textContent = `✅ Result: ${decimalValue.toString(toBase).toUpperCase()}`;
 }
 
-// Calculator
 function calculate() {
   const num1Str = document.getElementById("num1").value.trim().toUpperCase();
   const num2Str = document.getElementById("num2").value.trim().toUpperCase();
@@ -129,11 +123,9 @@ function calculate() {
         return;
       }
       if (base === 10) {
-        // Decimal division with up to 6 decimals
         result = n1 / n2;
         result = parseFloat(result.toFixed(6));
       } else {
-        // Integer division for other bases
         result = Math.floor(n1 / n2);
       }
       break;
@@ -141,7 +133,6 @@ function calculate() {
   resultDiv.textContent = `✅ Result: ${result.toString(base).toUpperCase()}`;
 }
 
-// Swap converter
 document.getElementById("swapArrow").addEventListener("click", () => {
   const fromSelect = document.getElementById("fromBase");
   const toSelect = document.getElementById("toBase");

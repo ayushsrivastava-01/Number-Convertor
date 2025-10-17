@@ -1,13 +1,11 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Body */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background: linear-gradient(135deg, #bccbf4, #d9e6ff, #edfcbf);
   color: #0d1b2a;
   display: flex;
@@ -21,25 +19,26 @@ body.dark {
   color: #e2e8f0;
 }
 
-/* Header */
 header {
   text-align: center;
   padding: 25px 15px;
   background: #6a5acd;
   color: white;
   position: relative;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
-body.dark header { background: #483d8b; }
-header h1 { font-size: 1.8rem; letter-spacing: 1px; }
+body.dark header {
+  background: #483d8b;
+}
+header h1 {
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+}
 
-/* ===========================
-   🔘 Theme Toggle (Floating)
-=========================== */
 .theme-toggle {
-  position: fixed; /* Always visible */
+  position: fixed;
   top: 20px;
   right: 20px;
   width: 45px;
@@ -72,9 +71,6 @@ body.dark .theme-toggle {
   opacity: 0.8;
 }
 
-/* ===========================
-   Layout
-=========================== */
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -84,15 +80,10 @@ body.dark .theme-toggle {
   flex: 1;
 }
 
-/* ===========================
-   Card Style
-=========================== */
 .card {
   background: #ffffff;
   border-radius: 18px;
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.1),
-    0 8px 20px rgba(0, 0, 0, 0.08),
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 20px rgba(0, 0, 0, 0.08),
     0 12px 30px rgba(0, 0, 0, 0.06);
   padding: 25px;
   width: 100%;
@@ -103,17 +94,13 @@ body.dark .theme-toggle {
 
 body.dark .card {
   background: #1f2a3a;
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.2),
-    0 8px 20px rgba(0, 0, 0, 0.18),
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 8px 20px rgba(0, 0, 0, 0.18),
     0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow:
-    0 8px 16px rgba(0, 0, 0, 0.15),
-    0 12px 25px rgba(0, 0, 0, 0.12),
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 12px 25px rgba(0, 0, 0, 0.12),
     0 16px 35px rgba(0, 0, 0, 0.1);
 }
 
@@ -122,11 +109,10 @@ body.dark .card {
   margin-bottom: 15px;
   color: #6a5acd;
 }
-body.dark .card h2 { color: #a3a1ff; }
+body.dark .card h2 {
+  color: #a3a1ff;
+}
 
-/* ===========================
-   Inputs
-=========================== */
 .input-group {
   margin-bottom: 15px;
   display: flex;
@@ -146,18 +132,18 @@ body.dark .card h2 { color: #a3a1ff; }
 }
 .input-group input:focus {
   border-color: #6a5acd;
-  box-shadow: 0 0 8px rgba(106,90,205,0.3);
+  box-shadow: 0 0 8px rgba(106, 90, 205, 0.3);
 }
 body.dark .input-group input {
   background: #334155;
   color: #f8fafc;
   border: 1px solid #a3a1ff;
 }
-.input-group small { color: red; font-size: 0.8rem; }
+.input-group small {
+  color: red;
+  font-size: 0.8rem;
+}
 
-/* ===========================
-   Converter Layout
-=========================== */
 .converter-box {
   display: flex;
   flex-direction: column;
@@ -167,15 +153,15 @@ body.dark .input-group input {
 .swap-arrow {
   width: 40px;
   height: 40px;
-  background: url('https://cdn-icons-png.flaticon.com/512/10728/10728370.png') no-repeat center/contain;
+  background: url("https://cdn-icons-png.flaticon.com/512/10728/10728370.png")
+    no-repeat center/contain;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-.swap-arrow:hover { transform: rotate(180deg); }
+.swap-arrow:hover {
+  transform: rotate(180deg);
+}
 
-/* ===========================
-   Select Styling
-=========================== */
 select {
   width: 100%;
   padding: 10px;
@@ -189,7 +175,7 @@ select {
 }
 select:focus {
   border-color: #6a5acd;
-  box-shadow: 0 0 8px rgba(106,90,205,0.3);
+  box-shadow: 0 0 8px rgba(106, 90, 205, 0.3);
 }
 body.dark select {
   background: #334155;
@@ -197,9 +183,6 @@ body.dark select {
   border-color: #a3a1ff;
 }
 
-/* ===========================
-   Buttons
-=========================== */
 button {
   margin-top: 15px;
   width: 100%;
@@ -223,12 +206,17 @@ button:hover {
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 button::after {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; left: -100%;
+  top: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0)
+  );
   transition: all 0.5s ease;
   border-radius: 10px;
 }
@@ -236,9 +224,6 @@ button:hover::after {
   left: 0;
 }
 
-/* ===========================
-   Result Box
-=========================== */
 .result-box {
   margin-top: 15px;
   background: #dbe3ff;
@@ -255,9 +240,6 @@ body.dark .result-box {
   color: #a3a1ff;
 }
 
-/* ===========================
-   Footer
-=========================== */
 footer {
   text-align: center;
   padding: 15px;
@@ -268,16 +250,22 @@ footer {
   border-top-right-radius: 15px;
   transition: background 0.3s ease;
 }
-body.dark footer { background: #483d8b; }
+body.dark footer {
+  background: #483d8b;
+}
 
-footer strong { color: #ffeb3b; }
+footer strong {
+  color: #ffeb3b;
+}
 
 #emailLink {
   color: #ffeb3b;
   text-decoration: none;
   font-weight: bold;
 }
-#emailLink:hover { text-decoration: underline; }
+#emailLink:hover {
+  text-decoration: underline;
+}
 
 #suggestions {
   margin-top: 10px;
@@ -286,9 +274,6 @@ footer strong { color: #ffeb3b; }
   font-style: italic;
 }
 
-/* ===========================
-   Visitor Counter
-=========================== */
 .visitor-text {
   margin-top: 10px;
   font-size: 1rem;
@@ -301,24 +286,37 @@ footer strong { color: #ffeb3b; }
   animation: blink 1.5s infinite;
 }
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.6; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
-/* ===========================
-   Responsive Design
-=========================== */
-@media(max-width:768px) {
-  .container { padding: 20px 15px; gap: 20px; }
-  .card { padding: 20px; }
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+    gap: 20px;
+  }
+  .card {
+    padding: 20px;
+  }
 }
-@media(max-width:480px) {
-  header h1 { font-size: 1.3rem; }
-  button { font-size: 0.95rem; 
-    
-    
-    padding: 10px; }
-  .result-box { font-size: 1rem; padding: 10px; }
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.3rem;
+  }
+  button {
+    font-size: 0.95rem;
+
+    padding: 10px;
+  }
+  .result-box {
+    font-size: 1rem;
+    padding: 10px;
+  }
   .theme-toggle {
     width: 40px;
     height: 40px;
