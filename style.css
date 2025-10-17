@@ -1,16 +1,21 @@
 /* Reset */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
 body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #e0f7fa, #ffffff, #b2dfdb);
+  background: linear-gradient(135deg, #bccbf4, #d9e6ff, #edfcbf);
   color: #0d1b2a;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  transition: all 0.3s ease;
+  transition: background 0.5s ease, color 0.5s ease;
 }
 
-/* Dark Mode */
 body.dark {
   background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
   color: #e2e8f0;
@@ -20,31 +25,56 @@ body.dark {
 header {
   text-align: center;
   padding: 25px 15px;
-  background: #009688;
+  background: #6a5acd;
   color: white;
   position: relative;
   box-shadow: 0 3px 10px rgba(0,0,0,0.3);
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
 }
-body.dark header { background: #00695c; }
+body.dark header { background: #483d8b; }
 header h1 { font-size: 1.8rem; letter-spacing: 1px; }
 
-/* Theme toggle */
+/* ===========================
+   🔘 Theme Toggle (Floating)
+=========================== */
 .theme-toggle {
-  position: absolute;
-  top: 15px;
+  position: fixed; /* Always visible */
+  top: 20px;
   right: 20px;
-  width: 28px;
-  height: 28px;
-  background: url('https://cdn-icons-png.flaticon.com/512/6714/6714978.png') no-repeat center/contain;
+  width: 45px;
+  height: 45px;
   cursor: pointer;
+  z-index: 9999;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 body.dark .theme-toggle {
-  background: url('https://cdn-icons-png.flaticon.com/512/6714/6714975.png') no-repeat center/contain;
+  background: rgba(255, 255, 255, 0.1);
+}
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
 }
 
-/* Container */
+.theme-toggle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  padding: 8px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+.theme-toggle img.rotate {
+  transform: rotate(100deg);
+  opacity: 0.8;
+}
+
+/* ===========================
+   Layout
+=========================== */
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -54,26 +84,49 @@ body.dark .theme-toggle {
   flex: 1;
 }
 
-/* Card */
+/* ===========================
+   Card Style
+=========================== */
 .card {
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.1),
+    0 8px 20px rgba(0, 0, 0, 0.08),
+    0 12px 30px rgba(0, 0, 0, 0.06);
   padding: 25px;
   width: 100%;
   max-width: 400px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, box-shadow 0.3s ease;
 }
-body.dark .card {
-  background: #1e293b;
-  box-shadow: 0 6px 15px rgba(255,255,255,0.05);
-}
-.card:hover { transform: translateY(-6px); }
-.card h2 { font-size: 1.4rem; margin-bottom: 15px; color: #009688; }
-body.dark .card h2 { color: #4dd0e1; }
 
-/* Input group */
+body.dark .card {
+  background: #1f2a3a;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 8px 20px rgba(0, 0, 0, 0.18),
+    0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.15),
+    0 12px 25px rgba(0, 0, 0, 0.12),
+    0 16px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #6a5acd;
+}
+body.dark .card h2 { color: #a3a1ff; }
+
+/* ===========================
+   Inputs
+=========================== */
 .input-group {
   margin-bottom: 15px;
   display: flex;
@@ -89,15 +142,22 @@ body.dark .card h2 { color: #4dd0e1; }
   font-size: 1rem;
   color: #0d1b2a;
   outline: none;
+  transition: all 0.3s ease;
+}
+.input-group input:focus {
+  border-color: #6a5acd;
+  box-shadow: 0 0 8px rgba(106,90,205,0.3);
 }
 body.dark .input-group input {
   background: #334155;
   color: #f8fafc;
-  border: 1px solid #4dd0e1;
+  border: 1px solid #a3a1ff;
 }
 .input-group small { color: red; font-size: 0.8rem; }
 
-/* Converter layout */
+/* ===========================
+   Converter Layout
+=========================== */
 .converter-box {
   display: flex;
   flex-direction: column;
@@ -105,15 +165,17 @@ body.dark .input-group input {
   gap: 10px;
 }
 .swap-arrow {
-  width: 35px;
-  height: 35px;
-  background: url('https://cdn-icons-png.flaticon.com/512/2989/2989988.png') no-repeat center/contain;
+  width: 40px;
+  height: 40px;
+  background: url('https://cdn-icons-png.flaticon.com/512/10728/10728370.png') no-repeat center/contain;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 .swap-arrow:hover { transform: rotate(180deg); }
 
-/* Select styling */
+/* ===========================
+   Select Styling
+=========================== */
 select {
   width: 100%;
   padding: 10px;
@@ -123,54 +185,91 @@ select {
   color: #0d1b2a;
   text-align: center;
   font-size: 1rem;
+  transition: all 0.3s ease;
+}
+select:focus {
+  border-color: #6a5acd;
+  box-shadow: 0 0 8px rgba(106,90,205,0.3);
 }
 body.dark select {
   background: #334155;
   color: #e2e8f0;
-  border-color: #4dd0e1;
+  border-color: #a3a1ff;
 }
 
-/* Buttons */
+/* ===========================
+   Buttons
+=========================== */
 button {
   margin-top: 15px;
   width: 100%;
   padding: 12px;
   border: none;
   border-radius: 10px;
-  background: linear-gradient(90deg, #009688, #4db6ac);
+  background: linear-gradient(90deg, #6a5acd, #a3a1ff);
   color: white;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
-body.dark button { background: linear-gradient(90deg, #00796b, #26a69a); }
-button:hover { transform: scale(1.03); }
+body.dark button {
+  background: linear-gradient(90deg, #6a5acd, #a3a1ff);
+}
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+button::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+  transition: all 0.5s ease;
+  border-radius: 10px;
+}
+button:hover::after {
+  left: 0;
+}
 
-/* Result box */
+/* ===========================
+   Result Box
+=========================== */
 .result-box {
   margin-top: 15px;
-  background: #e0f2f1;
-  color: #004d40;
+  background: #dbe3ff;
+  color: #2c2f7f;
   padding: 12px;
   border-radius: 10px;
   font-weight: 600;
   font-size: 1.1rem;
   min-height: 30px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
-body.dark .result-box { background: #334155; color: #80deea; }
+body.dark .result-box {
+  background: #334155;
+  color: #a3a1ff;
+}
 
-/* Footer */
+/* ===========================
+   Footer
+=========================== */
 footer {
   text-align: center;
   padding: 15px;
-  background: #009688;
+  background: #6a5acd;
   color: white;
   font-size: 0.9rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  transition: background 0.3s ease;
 }
-body.dark footer { background: #00695c; }
+body.dark footer { background: #483d8b; }
+
 footer strong { color: #ffeb3b; }
 
 #emailLink {
@@ -187,7 +286,9 @@ footer strong { color: #ffeb3b; }
   font-style: italic;
 }
 
-/* Visitor counter */
+/* ===========================
+   Visitor Counter
+=========================== */
 .visitor-text {
   margin-top: 10px;
   font-size: 1rem;
@@ -204,14 +305,24 @@ footer strong { color: #ffeb3b; }
   50% { opacity: 0.6; }
 }
 
-/* Responsive */
-@media(max-width:768px){
+/* ===========================
+   Responsive Design
+=========================== */
+@media(max-width:768px) {
   .container { padding: 20px 15px; gap: 20px; }
   .card { padding: 20px; }
 }
-
-@media(max-width:480px){
+@media(max-width:480px) {
   header h1 { font-size: 1.3rem; }
-  button { font-size: 0.95rem; padding: 10px; }
+  button { font-size: 0.95rem; 
+    
+    
+    padding: 10px; }
   .result-box { font-size: 1rem; padding: 10px; }
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    top: 15px;
+    right: 15px;
+  }
 }

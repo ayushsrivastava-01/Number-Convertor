@@ -13,7 +13,9 @@
 <body>
   <header>
     <h1>Number System Converter & Calculator</h1>
-    <div class="theme-toggle" id="themeToggle" title="Toggle Theme"></div>
+    <div class="theme-toggle" id="themeToggle" title="Toggle Theme">
+      <img id="themeIcon" src="https://cdn-icons-png.flaticon.com/512/6714/6714978.png" alt="Theme Icon">
+    </div>
   </header>
 
   <main class="container">
@@ -75,19 +77,10 @@
   </main>
 
   <footer>
-    <p>© 2025 <strong>Ayush Srivastava</strong></p>
-    <p>
-      For suggestions contact:
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=srivastava999ayush@gmail.com" target="_blank" id="emailLink">
-        srivastava999ayush@gmail.com
-      </a>
-    </p>
-    <div id="suggestions">
-      💡 Got ideas? Drop me an email with your suggestions!
-    </div>
-    <p class="visitor-text">
-      Visitors: <span id="visitorCount">0</span>
-    </p>
+    <p>© <span id="year"></span> Ayush Srivastava. All rights reserved.</p>
+    <p>Contact: <a href="mailto:srivastava999ayush@gmail.com" id="emailLink">srivastava999ayush@gmail.com</a></p>
+    <p id="suggestions">💡 Got ideas? Drop me an email with your suggestions!</p>
+    <p class="visitor-text">Visitors: <span id="visitorCount">0</span></p>
   </footer>
 
   <script src="script.js"></script>
